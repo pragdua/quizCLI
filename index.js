@@ -2,7 +2,7 @@ const readlineSync = require("readline-sync");
 const chalk = require("chalk");
 const enterName = readlineSync.question("Welcome to the Quiz. Please enter your name : ");
 
-console.log("Welcome " + chalk.bold(enterName) + " to " + chalk.bgCyan.black.bold("DO YOU KNOW ME!"));
+console.log("Welcome " + chalk.bold(enterName) + " to " + chalk.cyan.bold("THE FRIENDSHIP TEST"));
 console.log(" ");
 readlineSync.question(chalk.red("Press any key to begin.... "));
 console.log(" ");
@@ -48,9 +48,7 @@ function quizQnA(question,answer){
   
 }
 
-playAgain();
-
-function playAgain() {
+const playAgain = () =>  {
   for(let i = 0 ; i < questionPannel.length ; i++){
     quizQnA(questionPannel[i].question,questionPannel[i].answer);
   }
@@ -60,11 +58,13 @@ function playAgain() {
     if(score > score2){
       score2 = score;
     }
-    // console.log("Your current score " + score2);
+
     score = 0;
     playAgain();
   }
 }
+
+playAgain();
 
 
 console.log(" ");
